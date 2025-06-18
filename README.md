@@ -29,13 +29,14 @@ sudo apt install libtirpc-dev
 sudo apt install libnsl-dev
 ```
 ---
-##🛠️ Compilación del Proyecto
+## 🛠️ Compilación del Proyecto
 
 Ubícate en la carpeta correspondiente (cliente o servidor) en cada máquina y ejecuta:
 ```bash
 make
+```
 ---
-##🌐 Configuración de Red
+## 🌐 Configuración de Red
 
 Configura ambas máquinas en adaptador puente y asigna las siguientes IPs:
 
@@ -55,16 +56,17 @@ Configura ambas máquinas en adaptador puente y asigna las siguientes IPs:
 
         Gateway: 192.168.101.1
 ---
-##▶️ Ejecución del Programa
+## ▶️ Ejecución del Programa
 En la máquina servidor:
 ```bash
 ./calculadora_server
-
+```
 En la máquina cliente:
 ```bash
 ./calculadora_client 192.168.101.10
+```
 ---
-✅ Prueba de Funcionamiento
+## ✅ Prueba de Funcionamiento
 
 Realiza las operaciones solicitadas en la consola del cliente y verifica que el resultado sea procesado correctamente por el servidor.
 
