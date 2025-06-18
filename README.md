@@ -1,37 +1,70 @@
-# Proyecto RPC GRUPO1: Calculadora
+# Aplicación RPC - Calculadora (GRUPO1)
 
-Este repositorio contiene la implementación de una aplicación de calculadora distribuida utilizando RPC (Remote Procedure Call) en C. Este proyecto está diseñado para ser ejecutado en un entorno de máquinas virtuales Linux.
-
-**Autores:**
-* Diego Chancusig
-* Miguel Morales
-* Brian Flores
-
-**Sistema Operativo Recomendado:**
-* Linux Mint 22.0 (o distribuciones basadas en Debian/Ubuntu compatibles)
+**Autores:** Diego Chancusig, Miguel Morales, Brian Flores  
+**Sistema Operativo:** Linux Mint 22.0  
+**Proyecto:** Aplicación RPC de una calculadora usando dos máquinas virtuales (Cliente-Servidor)
 
 ---
 
-## Pasos Previos y Configuración
+## 📁 Estructura Inicial
 
-Sigue estos pasos detallados para configurar y ejecutar la aplicación RPC en un entorno de dos máquinas virtuales (Cliente y Servidor).
+1. **Crea las carpetas necesarias:**
+   - En la máquina **cliente**, crea una carpeta llamada `cliente` en el escritorio.
+   - En la máquina **servidor**, crea una carpeta llamada `servidor` en el escritorio.
 
-### Configuración Inicial de Carpetas
+2. **Ubica los archivos:**
+   - Copia los archivos fuente del cliente dentro de la carpeta `cliente`.
+   - Copia los archivos fuente del servidor dentro de la carpeta `servidor`.
 
-1.  **Máquinas Virtuales:** Asegúrate de tener dos máquinas virtuales configuradas: una designada como **"Cliente"** y otra como **"Servidor"**.
-2.  **Creación de Carpetas:** En el escritorio de *ambas* máquinas virtuales, crea las siguientes carpetas:
-    * En la máquina **Cliente**, crea una carpeta llamada `cliente`.
-    * En la máquina **Servidor**, crea una carpeta llamada `servidor`.
-3.  **Copia de Archivos:** Copia y pega los archivos correspondientes (tal como se describe en la sección de "Archivos para el Cliente" y "Archivos para el Servidor" en tu documentación interna) en sus respectivas carpetas.
+---
 
-### 1. Requisitos Previos (Instala las Bibliotecas Necesarias)
+## ✅ Requisitos Previos
 
-Es fundamental instalar las bibliotecas de desarrollo RPC en ambas máquinas virtuales.
-
-En red (Wifi), abre una terminal en la carpeta `cliente` (en la máquina cliente) y en la carpeta `servidor` (en la máquina servidor) y ejecuta los siguientes comandos en cada terminal:
+Ejecuta los siguientes comandos en **ambas máquinas virtuales** (cliente y servidor):
 
 ```bash
 sudo apt update
-sudo apt install rpcbind # Este es el portmapper, esencial para RPC
-sudo apt install libtirpc-dev # Librería para RPC
-sudo apt install libnsl-dev   # Librería de Network Services (a veces necesaria para RPC)
+sudo apt install rpcbind
+sudo apt install libtirpc-dev
+sudo apt install libnsl-dev
+##🛠️ Compilación del Proyecto
+
+Ubícate en la carpeta correspondiente (cliente o servidor) en cada máquina y ejecuta:
+
+make
+
+##🌐 Configuración de Red
+
+Configura ambas máquinas en adaptador puente y asigna las siguientes IPs:
+
+    Servidor
+
+        IP: 192.168.101.10
+
+        Máscara: 255.255.255.0 (/24)
+
+        Gateway: 192.168.101.1
+
+    Cliente
+
+        IP: 192.168.101.20
+
+        Máscara: 255.255.255.0 (/24)
+
+        Gateway: 192.168.101.1
+
+▶️ Ejecución del Programa
+En la máquina servidor:
+```bash
+./calculadora_server
+
+En la máquina cliente:
+```bash
+./calculadora_client 192.168.101.10
+
+✅ Prueba de Funcionamiento
+
+Realiza las operaciones solicitadas en la consola del cliente y verifica que el resultado sea procesado correctamente por el servidor.
+
+¡Listo! Tu calculadora RPC está funcionando correctamente entre dos máquinas virtuales 🎉
+
