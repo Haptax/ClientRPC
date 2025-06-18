@@ -27,6 +27,7 @@ sudo apt update
 sudo apt install rpcbind
 sudo apt install libtirpc-dev
 sudo apt install libnsl-dev
+```
 ---
 ##🛠️ Compilación del Proyecto
 
